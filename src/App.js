@@ -10,32 +10,38 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
+import Layout from "./components/Layout";
 
 function App() {
-  const [theme, colorMode] = useMode();
+
   const [isSidebar, setIsSidebar] = useState(true);
+  const [theme,colorMode] = useMode();
 
   return (
- 
-<ColorModeContext.Provider value={colorMode}>
-<ThemeProvider theme={theme}>
-  <CssBaseline />
-  <div className="app">
-    <ProSidebar isSidebar={isSidebar} />
-    <main className="content">
-      <Topbar setIsSidebar={setIsSidebar} />
+    <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          {window.location.pathname !== '/login' && <ProSidebar isSidebar={isSidebar} /> }
+        <main className="content">
+          {window.location.pathname !== '/login' && <Topbar setIsSidebar={setIsSidebar} /> }
       <Routes>
+        <Route path="/" element={<Layout/>}>
+         {/* public routes*/}
+        <Route path="/login" element={<Login />} />
+        {/* private routes*/}
         <Route path="/" element={<Dashboard />} />
         <Route path="/agents" element={<Agents />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/reports" element={<Reports />} />
-        <Route path="/login" element={<Login />} />    
+        </Route>
       </Routes>
-    </main>
-  </div>
-</ThemeProvider>
-</ColorModeContext.Provider>
+      </main>
+      </div>
+      </ThemeProvider>
+      </ColorModeContext.Provider>
   );
 }
 
 export default App;
+
