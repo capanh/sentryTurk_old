@@ -5,6 +5,7 @@ import Reports from "./scenes/reports";
 import Login from "./scenes/login";
 import Agents from "./scenes/agents";
 import Topbar from "./scenes/global/Topbar";
+import Users from "./scenes/users"
 import ProSidebar from "./scenes/global/ProSidebar";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
@@ -34,6 +35,7 @@ function App() {
         <Route path="/agents" element={<Agents />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/reports" element={<Reports />} />
+        <Route path="/users" element={<Users />} />
         </Route>
       </Routes>
       </main>

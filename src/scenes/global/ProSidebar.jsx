@@ -18,7 +18,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[100],
+        color: colors.blueAccent[500],
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -182,7 +182,7 @@ const ProSidebar = () => {
                   <Item
                     title="Syntetic Tests "
                     to="/settings"
-                    icon={<PieChartOutlineOutlinedIcon />}
+                    icon={<ContactsOutlinedIcon />}
                     selected={selected}
                     setSelected={setSelected}
                   />
@@ -199,7 +199,13 @@ const ProSidebar = () => {
                   >
                     Settings
                   </Typography>
-
+                  <Item
+                    title="Users "
+                    to="/users"
+                    icon={<ContactsOutlinedIcon />}
+                    selected={selected}
+                    setSelected={setSelected}
+                  />
                   <Item
                     title="Settings "
                     to="/settings"

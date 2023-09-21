@@ -54,7 +54,6 @@ const Login = () => {
       }
     }
 
-    /*  IMPLEMENT AXIOS WITH USER NAME LOGİN*/
   };
 
   return (
