@@ -5,12 +5,16 @@ import { tokens } from "../../theme";
 import { useState } from "react";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import StreamIcon from '@mui/icons-material/Stream';
+import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import SensorsIcon from '@mui/icons-material/Sensors';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+import SettingsIcon from '@mui/icons-material/Settings';
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -36,189 +40,197 @@ const ProSidebar = () => {
   const [selected, setSelected] = useState("Dashboard");
 
   return (
- 
-        <div className="pro-sidebar-layout" >
-          <Box
-            sx={{
-              "& .ps-sidebar-container": {
-                background: `${colors.primary[400]} !important`,
-                height:'100%'
-              },
+    <div className="pro-sidebar-layout">
+      <Box
+        sx={{
+          "& .ps-sidebar-container": {
+            background: `${colors.primary[400]} !important`,
+            height: "100%",
+          },
 
-              "& .pro-icon-wrapper": {
-                backgroundColor: "transparent !important",
-              },
-              "& .pro-inner-item": {
-                padding: "5px 35px 5px 20px !important",
-              },
-              "& .pro-inner-item:hover": {
-                color: "#868dfb !important",
-              },
-              "& .pro-menu-item.active": {
-                color: "#6870fa !important",
-              },
-            }}
-          >
-            <Sidebar collapsed={isCollapsed} style={{ height: "100vh" }} >
-              <Menu>
-                <MenuItem
-                  onClick={() => setIsCollapsed(!isCollapsed)}
-                  icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
-                  style={{
-                    margin: "10px 0 20px 0",
-                    color: colors.grey[100],
-                  }}
+          "& .pro-icon-wrapper": {
+            backgroundColor: "transparent !important",
+          },
+          "& .pro-inner-item": {
+            padding: "5px 35px 5px 20px !important",
+          },
+          "& .pro-inner-item:hover": {
+            color: "#868dfb !important",
+          },
+          "& .pro-menu-item.active": {
+            color: "#6870fa !important",
+          },
+        }}
+      >
+        <Sidebar collapsed={isCollapsed} style={{ height: "100vh" }}>
+          <Menu>
+            <MenuItem
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+              style={{
+                margin: "10px 0 20px 0",
+                color: colors.grey[100],
+              }}
+            >
+              {!isCollapsed && (
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  ml="15px"
                 >
-                  {!isCollapsed && (
-                    <Box
-                      display="flex"
-                      justifyContent="space-between"
-                      alignItems="center"
-                      ml="15px"
-                    >
-                      <Typography variant="h3" color={colors.grey[100]}>
-                        SentryTurk
-                      </Typography>
-                      <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
-                        <MenuOutlinedIcon />
-                      </IconButton>
-                    </Box>
-                  )}
-                </MenuItem>
+                  <Box sx={{flex:1}}></Box>
+                  <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                    <MenuOutlinedIcon />
+                  </IconButton>
+                </Box>
+              )}
+            </MenuItem>
 
-                {!isCollapsed && (
-                  <Box mb="25px">
-                    <Box
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <img
-                        alt="profile-user"
-                        width="100px"
-                        height="100px"
-                        src={`../../assets/user.png`}
-                        style={{ cursor: "pointer", borderRadius: "50%" }}
-                      />
-                    </Box>
-                    <Box textAlign="center">
-                      <Typography
-                        variant="h2"
-                        color={colors.grey[100]}
-                        fontWeight="bold"
-                        sx={{ m: "10px 0 0 0" }}
-                      >
-                        Jessica Smith
-                      </Typography>
-                      <Typography variant="h5" color={colors.greenAccent[500]}>
-                        Smart Admin
-                      </Typography>
-                    </Box>
-                  </Box>
-                )}
-
-                <Box paddingLeft={isCollapsed ? undefined : "10%"} >
-                  <Item
-                    title="Home Page"
-                    to="/"
-                    icon={<HomeOutlinedIcon />}
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-
-                  <Typography
-                    variant="h6"
-                    color={colors.grey[300]}
-                    sx={{ m: "15px 0px 5px 20px",
-                    display:
-                    isCollapsed
-                      ? "none"
-                      : "block"
-                    }}
-                  >
-                    Data
-                  </Typography>
-                  <Item
-                    title="Live Data"
-                    to="/"
-                    icon={<PeopleOutlinedIcon />}
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-                  <Item
-                    title="Applications"
-                    to="/applications"
-                    icon={<ContactsOutlinedIcon />}
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-                  <Item
-                    title="Agents"
-                    to="/agents"
-                    icon={<ContactsOutlinedIcon />}
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-
-                  <Item
-                    title="Reports"
-                    to="/reports"
-                    icon={<ReceiptOutlinedIcon />}
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-                  <Typography
-                    variant="h6"
-                    color={colors.grey[300]}
-                    sx={{ m: "15px 0px 5px 20px",
-                    display:
-                    isCollapsed
-                      ? "none"
-                      : "block"
-                    }}
-                  >Engagements
-                  </Typography>
-
-                  <Item
-                    title="Syntetic Tests "
-                    to="/settings"
-                    icon={<ContactsOutlinedIcon />}
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-                  <Typography
-                    variant="h6"
-                    color={colors.grey[300]}
-                    sx={{ m: "15px 0px 5px 20px",
-                    display:
-                    isCollapsed
-                      ? "none"
-                      : "block"
-                    }}
-                    
-                  >
-                    Settings
-                  </Typography>
-                  <Item
-                    title="Users "
-                    to="/users"
-                    icon={<ContactsOutlinedIcon />}
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-                  <Item
-                    title="Settings "
-                    to="/settings"
-                    icon={<PieChartOutlineOutlinedIcon />}
-                    selected={selected}
-                    setSelected={setSelected}
+            {!isCollapsed && (
+              <Box mb="25px">
+                <Box display="flex" justifyContent="center" alignItems="center">
+                  <img
+                    alt="profile-user"
+                    width="300px"
+                    height="300px"
+                    src={`../../assets/logoTranparent.png.png`}
+                    style={{ cursor: "pointer", borderRadius: "50%" }}
+                    m="0px"
                   />
                 </Box>
-              </Menu>
-            </Sidebar>
-          </Box>
-        </div>
+                <Box textAlign="center">
+                  <Typography
+                    variant="h2"
+                    color={colors.grey[100]}
+                    fontWeight="bold"
+                    sx={{ m: "0 0 0 0" }}
+                  >
+                    Hüseyin Çapan
+                  </Typography>
+                  <Typography variant="h5" color={colors.greenAccent[500]}>
+                    Smart Admin
+                  </Typography>
+                </Box>
+              </Box>
+            )}
 
+            <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+              <Item
+                title="Overview"
+                to="/"
+                icon={<DashboardIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+
+              <Typography
+                variant="h6"
+                color={colors.grey[300]}
+                sx={{
+                  m: "15px 0px 5px 20px",
+                  display: isCollapsed ? "none" : "block",
+                }}
+              >
+                Monitoring
+              </Typography>
+              <Item
+                title="Real-Time Monitoring"
+                to="/"
+                icon={<StreamIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="User Journeys"
+                to="/applications"
+                icon={<AnalyticsIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+
+              
+              <Typography
+                variant="h6"
+                color={colors.grey[300]}
+                sx={{
+                  m: "15px 0px 5px 20px",
+                  display: isCollapsed ? "none" : "block",
+                }}
+              >
+                Engagements
+              </Typography>
+              <Item
+                title="Agents"
+                to="/agents"
+                icon={<SensorsIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+
+              <Item
+                title="Synthetic Monitoring "
+                to="/settings"
+                icon={<MonitorHeartIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+               
+              
+              
+              
+              
+              <Typography
+                variant="h6"
+                color={colors.grey[300]}
+                sx={{
+                  m: "15px 0px 5px 20px",
+                  display: isCollapsed ? "none" : "block",
+                }}
+              >
+                Management
+              </Typography>
+              <Item
+                title="User Management "
+                to="/users"
+                icon={<PeopleOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Alerts and Notifications"
+                to="/reports"
+                icon={<NotificationsActiveIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Reports"
+                to="/reports"
+                icon={<ReceiptOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Integrations "
+                to="/settings"
+                icon={<IntegrationInstructionsIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Organization Settings "
+                to="/settings"
+                icon={<SettingsIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              
+            </Box>
+          </Menu>
+        </Sidebar>
+      </Box>
+    </div>
   );
 };
 export default ProSidebar;
