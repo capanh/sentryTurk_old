@@ -1,4 +1,4 @@
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import React from "react";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
@@ -7,14 +7,14 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import StreamIcon from '@mui/icons-material/Stream';
-import MonitorHeartIcon from '@mui/icons-material/MonitorHeart';
-import AnalyticsIcon from '@mui/icons-material/Analytics';
-import SensorsIcon from '@mui/icons-material/Sensors';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
-import SettingsIcon from '@mui/icons-material/Settings';
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import StreamIcon from "@mui/icons-material/Stream";
+import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
+import SensorsIcon from "@mui/icons-material/Sensors";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
+import SettingsIcon from "@mui/icons-material/Settings";
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -22,7 +22,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.blueAccent[500],
+        color: colors.primary[100],
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -79,7 +79,7 @@ const ProSidebar = () => {
                   alignItems="center"
                   ml="15px"
                 >
-                  <Box sx={{flex:1}}></Box>
+                  <Box sx={{ flex: 1 }}></Box>
                   <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                     <MenuOutlinedIcon />
                   </IconButton>
@@ -136,11 +136,12 @@ const ProSidebar = () => {
               </Typography>
               <Item
                 title="Real-Time Monitoring"
-                to="/"
+                to="/monitor"
                 icon={<StreamIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
+              
               <Item
                 title="User Journeys"
                 to="/applications"
@@ -149,7 +150,6 @@ const ProSidebar = () => {
                 setSelected={setSelected}
               />
 
-              
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
@@ -160,13 +160,25 @@ const ProSidebar = () => {
               >
                 Engagements
               </Typography>
+              
+                
+              <SubMenu label="Agents" icon={<SensorsIcon/>} rootStyles={{color : colors.primary[100]}} >
               <Item
-                title="Agents"
+                title="Agent List"
                 to="/agents"
                 icon={<SensorsIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
+              <Item title="Test Settings"
+                to="/agents/testSettings"
+                icon={<StreamIcon />}
+                selected={selected}
+                setSelected={setSelected}/>
+
+
+
+              </SubMenu>
 
               <Item
                 title="Synthetic Monitoring "
@@ -175,11 +187,7 @@ const ProSidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
-               
-              
-              
-              
-              
+
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
@@ -225,7 +233,6 @@ const ProSidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
-              
             </Box>
           </Menu>
         </Sidebar>

@@ -3,7 +3,7 @@ import Dashboard from "./scenes/dashboard";
 import Settings from "./scenes/settings";
 import Reports from "./scenes/reports";
 import Login from "./scenes/login";
-import Agents from "./scenes/agents";
+import Agents from "./scenes/agents/index";
 import Topbar from "./scenes/global/Topbar";
 import Users from "./scenes/users"
 import ProSidebar from "./scenes/global/ProSidebar";
@@ -12,6 +12,8 @@ import { Routes, Route } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Layout from "./components/Layout";
+import RealTimeMonitorDashboard from "./scenes/monitor";
+import TestSettings from "./scenes/agents/TestSettings";
 
 function App() {
 
@@ -32,7 +34,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         {/* private routes*/}
         <Route path="/" element={<Dashboard />} />
+        <Route path="/monitor" element={<RealTimeMonitorDashboard />} />
         <Route path="/agents" element={<Agents />} />
+        <Route path="/agents/testSettings" element={<TestSettings />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/users" element={<Users />} />
