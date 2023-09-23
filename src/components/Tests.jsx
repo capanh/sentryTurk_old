@@ -8,7 +8,7 @@ import { Menu,MenuItem } from '@mui/material';
 import  MoreVertIcon from '@mui/icons-material/MoreVert'
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-
+import Chip from '@mui/material/Chip';
 
 const Tests = () => {
     const MoreActions = () => {
@@ -52,7 +52,12 @@ const Tests = () => {
       const columns = [
         { field: 'testName', headerName: 'Test Name'},
         { field: 'type', headerName: 'Type' },
-        { field: 'tag', headerName: 'Tags' , width: 200},
+        { field: 'tag', headerName: 'Tags' , width: 200,
+        renderCell: (params) => {
+          const { value } = params;
+          
+          return <Chip label={value} classes={{background:colors.grey[200]}}  />
+      }},
         { field: 'target', headerName: 'Target', width: 300 },
         
         { field: 'alerts', headerName: 'Alerts' ,
@@ -65,7 +70,7 @@ const Tests = () => {
         { field: 'enabled', headerName: 'Enabled',
              renderCell: (params) => {
             const { value } = params;
-      
+            
             return value ? <CheckIcon style={{ color: 'green' }} /> : <CloseIcon style={{ color: 'red' }} />;
           }
                 
