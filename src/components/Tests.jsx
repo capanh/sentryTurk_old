@@ -98,8 +98,8 @@ const Tests = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
   return (
-    <Box p={"5px"} border={"solid gray 5px "} borderRadius={"3px"} width={'1030px'} position={'relative'}>
-         <Box  display={"flex"} gap={"5px"} p>
+    <Box p={"5px"} border={"solid gray 1px "} borderRadius={"5px"} width={'1030px'} position={'relative'}>
+         <Box  display={"flex"} gap={"5px"} position={'relative'} m="10px">
         <Button variant="text" sx={{ background: colors.blueAccent[700] }}>
           Add New test
         </Button>
@@ -108,12 +108,13 @@ const Tests = () => {
         </Button>
       </Box>
 
-      <Box sx={{ height: 1000, width:''}}>
+      <Box m="10px" position={'relative'} sx={{ height: 1000}}>
+      
       <DataGrid
         disableColumnFilter
         disableColumnSelector
         disableDensitySelector
-        columns={columns}
+        columns={columns} 
         rows={rows}
         slots={{ toolbar: GridToolbar }}
         sx={{color: colors.blueAccent[300], height:'1000px',width:'1000px'}}
@@ -124,6 +125,8 @@ const Tests = () => {
           },
         }}
       />
+      
+      
     </Box>
     </Box>
   )

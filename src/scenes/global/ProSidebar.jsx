@@ -15,6 +15,9 @@ import SensorsIcon from "@mui/icons-material/Sensors";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 import SettingsIcon from "@mui/icons-material/Settings";
+import Divider from "@mui/material/Divider";
+
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -170,6 +173,7 @@ const ProSidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
+              <Divider/>
               <Item title="Test Settings"
                 to="/agents/testSettings"
                 icon={<StreamIcon />}

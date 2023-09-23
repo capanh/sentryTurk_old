@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 // import { tokens } from "../theme";
 import Tests from "./Tests";
+import TestTags from "./TestTags";
+import TestCredentials from "./TestCredentials"
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -67,10 +69,10 @@ export default function StyledTabs() {
         <Tests/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Item Two
+        <TestTags/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        Item Three
+        <TestCredentials/>
       </CustomTabPanel>
       
     </Box>
