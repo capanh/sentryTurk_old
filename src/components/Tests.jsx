@@ -52,7 +52,9 @@ const Tests = () => {
       const columns = [
         { field: 'testName', headerName: 'Test Name'},
         { field: 'type', headerName: 'Type' },
+        { field: 'tag', headerName: 'Tags' , width: 200},
         { field: 'target', headerName: 'Target', width: 300 },
+        
         { field: 'alerts', headerName: 'Alerts' ,
             renderCell: (params) => {
             const { value } = params;
@@ -78,16 +80,16 @@ const Tests = () => {
       ];
 
       const rows = [
-        { id: 1, testName: 'Test 1', type: 'DNS', target: 'http://example.com', alerts: false, enabled: true },
-        { id: 2, testName: 'Test 2', type: 'WEB', target: 'http://example.org', alerts: true, enabled: false },
-        { id: 3, testName: 'Test 3', type: 'PING', target: '192.168.1.1', alerts: true, enabled: true },
-        { id: 4, testName: 'Test 4', type: 'TRACE', target: 'http://example.net', alerts: false, enabled: false },
-        { id: 5, testName: 'Test 5', type: 'DNS', target: 'http://example2.com', alerts: true, enabled: true },
-        { id: 6, testName: 'Test 6', type: 'WEB', target: 'http://example3.org', alerts: false, enabled: true },
-        { id: 7, testName: 'Test 7', type: 'PING', target: '8.8.8.8', alerts: true, enabled: false },
-        { id: 8, testName: 'Test 8', type: 'TRACE', target: 'http://example4.net', alerts: false, enabled: true },
-        { id: 9, testName: 'Test 9', type: 'DNS', target: 'http://example5.com', alerts: true, enabled: false },
-        { id: 10, testName: 'Test 10', type: 'WEB', target: 'http://example6.org', alerts: false, enabled: true },
+        { id: 1, testName: 'Test 1', type: 'DNS', tag: ['Tag 1', 'Tag 2'], target: 'http://example.com', alerts: true, enabled: true },
+        { id: 2, testName: 'Test 2', type: 'WEB', tag: ['Tag 2', 'Tag 3'], target: 'http://example.org', alerts: false, enabled: false },
+        { id: 3, testName: 'Test 3', type: 'PING', tag: ['Tag 3'], target: '192.168.1.1', alerts: true, enabled: true },
+        { id: 4, testName: 'Test 4', type: 'TRACE', tag: ['Tag 4', 'Tag 5'], target: 'http://example.net', alerts: false, enabled: false },
+        { id: 5, testName: 'Test 5', type: 'DNS', tag: ['Tag 5', 'Tag 6'], target: 'http://example2.com', alerts: true, enabled: true },
+        { id: 6, testName: 'Test 6', type: 'WEB', tag: ['Tag 6'], target: 'http://example3.org', alerts: false, enabled: true },
+        { id: 7, testName: 'Test 7', type: 'PING', tag: ['Tag 7'], target: '8.8.8.8', alerts: true, enabled: false },
+        { id: 8, testName: 'Test 8', type: 'TRACE', tag: ['Tag 8'], target: 'http://example4.net', alerts: false, enabled: true },
+        { id: 9, testName: 'Test 9', type: 'DNS', tag: ['Tag 9'], target: 'http://example5.com', alerts: true, enabled: false },
+        { id: 10, testName: 'Test 10', type: 'WEB', tag: ['Tag 10'], target: 'http://example6.org', alerts: false, enabled: true },
       ];
       
 
