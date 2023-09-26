@@ -21,6 +21,95 @@ export const mockDataTeam = [
   
 ];
 
+export const teamData = [
+    {
+      "id": 1,
+      "name": "Management Team",
+      "description": "Management team group",
+      "members": [
+        {
+          "id": 101,
+          "name": "John Doe",
+          "username": "johndoe"
+        },
+        {
+          "id": 102,
+          "name": "Jane Smith",
+          "username": "janesmith"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Developers",
+      "description": "Development team group",
+      "members": [
+        {
+          "id": 201,
+          "name": "Alice Johnson",
+          "username": "alicej"
+        },
+        {
+          "id": 202,
+          "name": "Bob Wilson",
+          "username": "bobw"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sales Team",
+      "description": "Sales department group",
+      "members": [
+        {
+          "id": 301,
+          "name": "Eva Brown",
+          "username": "evab"
+        },
+        {
+          "id": 302,
+          "name": "Michael Clark",
+          "username": "michaelc"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Marketing Team",
+      "description": "Marketing department group",
+      "members": [
+        {
+          "id": 401,
+          "name": "Grace Miller",
+          "username": "gracem"
+        },
+        {
+          "id": 402,
+          "name": "David White",
+          "username": "davidw"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "HR Department",
+      "description": "Human Resources department group",
+      "members": [
+        {
+          "id": 501,
+          "name": "Linda Adams",
+          "username": "lindaa"
+        },
+        {
+          "id": 502,
+          "name": "Robert Harris",
+          "username": "roberth"
+        }
+      ]
+    }
+  ]
+  
+
 export const mockDataContacts = [
   {
     id: 1,

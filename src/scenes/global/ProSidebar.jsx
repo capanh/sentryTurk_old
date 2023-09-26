@@ -210,6 +210,13 @@ const ProSidebar = () => {
                 setSelected={setSelected}
               />
               <Item
+                title="Applications "
+                to="/applications"
+                icon={<PeopleOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
                 title="Alerts and Notifications"
                 to="/reports"
                 icon={<NotificationsActiveIcon />}
