@@ -9,6 +9,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import Chip from "@mui/material/Chip";
+
 const Tests = () => {
   const MoreActions = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -43,20 +44,32 @@ const Tests = () => {
     {
       field: "tag",
       headerName: "Tags",
-      width: 200,
+      width: 300,
       renderCell: (params) => {
-        return(
-        <div>
-          {params.map((item, index) => (
-            <Chip
-              key ={index}// Ensure each Chip has a unique key when rendering in a loop
-              label={item} // Assuming each item in the array has a 'value' property
-              classes={{ background: colors.grey[200] }}
-            />
-          ))}
-        </div>);
+        if (!Array.isArray(params.value)) {
+          console.error("params.value is not an array");
+          return null; // Handle the non-array case, e.g., return null or display an error message
+        }
+
+        return (
+          <div display="flex" gap="5px">
+            {params.value.map((tagItem, tagIndex) => (
+              <Chip
+                key={tagIndex}
+                label={tagItem}
+                variant="rounded"
+                sx={{
+                  "& .MuiChip-colorPrimary": {
+                    color:colors.blueAccent[500]
+                  },
+                }}
+              />
+            ))}
+          </div>
+        );
       },
     },
+
     { field: "target", headerName: "Target", width: 300 },
 
     {
@@ -193,7 +206,7 @@ const Tests = () => {
       p={"5px"}
       border={"solid gray 1px "}
       borderRadius={"5px"}
-      width={"1030px"}
+      width="1030px"
       position={"relative"}
     >
       <Box display={"flex"} gap={"5px"} position={"relative"} m="10px">

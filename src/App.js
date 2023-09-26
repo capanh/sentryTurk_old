@@ -14,7 +14,7 @@ import { ColorModeContext, useMode } from "./theme";
 import Layout from "./components/Layout";
 import RealTimeMonitorDashboard from "./scenes/monitor";
 import TestSettings from "./scenes/agents/TestSettings";
-
+import SyntheticMonitoring from "./scenes/monitor/SyntheticMonitoring";
 function App() {
 
   const [isSidebar, setIsSidebar] = useState(true);
@@ -35,8 +35,10 @@ function App() {
         {/* private routes*/}
         <Route path="/" element={<Dashboard />} />
         <Route path="/monitor" element={<RealTimeMonitorDashboard />} />
+        <Route path="/monitor/SyntheticMonitoring" element={<SyntheticMonitoring/>} /> 
         <Route path="/agents" element={<Agents />} />
         <Route path="/agents/testSettings" element={<TestSettings />} />
+        
         <Route path="/settings" element={<Settings />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/users" element={<Users />} />

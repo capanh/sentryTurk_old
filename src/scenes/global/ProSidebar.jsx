@@ -175,7 +175,7 @@ const ProSidebar = () => {
               />
               <Divider/>
               <Item title="Test Settings"
-                to="/agents/testSettings"
+                to="/agents/TestSettings"
                 icon={<StreamIcon />}
                 selected={selected}
                 setSelected={setSelected}/>
@@ -186,7 +186,7 @@ const ProSidebar = () => {
 
               <Item
                 title="Synthetic Monitoring "
-                to="/settings"
+                to="/monitor/SyntheticMonitoring"
                 icon={<MonitorHeartIcon />}
                 selected={selected}
                 setSelected={setSelected}
