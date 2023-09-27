@@ -8,7 +8,7 @@ import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
 import { mockDataTeam } from "../../data/mockData";
 import Dialog from '@mui/material/Dialog';
-import UserForm from "../../components/UserForm";
+import UserForm from "./UserForm";
 
 
 const Users = () => {

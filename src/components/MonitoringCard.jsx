@@ -2,13 +2,26 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { Box, CardMedia } from '@mui/material';
 
-function MonitoringCard({ appName, totalUsers, location, score }) {
+
+function MonitoringCard({ appName, totalUsers, location, score}) {
+
+  const logoUrl = `../logos/icons8-${appName.replace(/ /g, '-')}-48.png`;
+
+  
   return (
-    <Card>
-      <CardContent>
+    <Card sx={{ width:'200', height:'70', boxShadow:2 }}  >
+      <CardContent sx={{ display:'flex' , gap: '30px', alignitems:'center', justifyContent:'center'}}  >
+      <CardMedia
+        component="img"
+        sx={{ height: 50 , width:50 }}
+        image={logoUrl}
+        alt={`${appName} Logo`}
         
-        <Typography variant="h5" component="div">
+      />
+      <Box>
+      <Typography variant="h5" component="div">
           {appName}
         </Typography>
         <Typography variant="h6" color="text.secondary">
@@ -20,6 +33,8 @@ function MonitoringCard({ appName, totalUsers, location, score }) {
         <Typography variant="h6" color="text.secondary">
           Score: {score}
         </Typography>
+      </Box>
+        
       </CardContent>
     </Card>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, useTheme, Button,Menu , MenuItem} from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { tokens } from "../theme";
+import { tokens } from "../../theme";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
 const TestCredentials = () => {
@@ -71,6 +71,7 @@ const TestCredentials = () => {
       borderRadius={"5px"}
       width={"830px"}
       position={"relative"}
+      boxShadow={2}
     >
       <Box display={"flex"} gap={"5px"} position={"relative"} m="10px">
         <Button variant="text" sx={{ background: colors.blueAccent[700] }}>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, Menu, useTheme } from "@mui/material";
-import { tokens } from "../theme";
+import { tokens } from "../../theme";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { MenuItem } from "react-pro-sidebar";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -91,6 +91,7 @@ const TestTags = () => {
       borderRadius={"5px"}
       width={"680px"}
       position={"relative"}
+      boxShadow={2}
     >
       <Box display={"flex"} gap={"5px"} position={"relative"} m="10px" >
         <Button variant="text" sx={{ background: colors.blueAccent[700] }}>

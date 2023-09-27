@@ -1,6 +1,6 @@
 import { Box, Button, useTheme } from "@mui/material";
 import React from "react";
-import { tokens } from "../theme";
+import { tokens } from "../../theme";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { useState } from "react";
@@ -208,6 +208,7 @@ const Tests = () => {
       borderRadius={"5px"}
       width="1030px"
       position={"relative"}
+      boxShadow={2}
     >
       <Box display={"flex"} gap={"5px"} position={"relative"} m="10px">
         <Button variant="text" sx={{ background: colors.blueAccent[700] }}>
